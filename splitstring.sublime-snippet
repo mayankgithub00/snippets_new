@@ -1,0 +1,25 @@
+<snippet>
+	<content><![CDATA[
+void tokenize(string s, string del)
+{
+//del string by which you want to split the string 
+//for examle you are passing the string (s,",") and you want to separat ethe string with using commas
+    int start = 0;
+    int end = s.find(del);
+    vector<string> ans;
+    while (end != -1)
+    {
+        ans.push_back(s.substr(start, end - start));
+        start = end + del.size();
+        end = s.find(del, start);
+    }
+    ans.push_back(s.substr(start, end - start));
+    for (ll i = 0; i < ans.size(); i++)cout << ans[i] << " ";
+    cout << endl;
+}
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>splitstring</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

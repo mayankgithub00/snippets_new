@@ -1,0 +1,65 @@
+<snippet>
+	<content><![CDATA[
+//important points to note
+// >dist should be set above max(n*m);
+// >initially everyone is the parent of their own
+// >in last also check that you have a valid path from src to n;
+void sssp(ll src, vector<vector<pl>>& adj)
+{
+    ll n = adj.size() - 1;
+    vl dist(n + 1, INF), parent(n + 1, -1);//everyone parent of their own
+    dist[src] = 0;
+    //pick,mark,relax
+    priority_queue<pl, vpl, greater<pl>> pq;//in ascending order
+    pq.push(make_pair(dist[src], src));
+    while (!pq.empty())
+    {
+        //pick and mark
+        auto it = pq.top(); pq.pop();
+        ll a = it.fi, b = it.se;
+        //relax
+        for (auto j : adj[b])
+        {
+            if (a + j.se < dist[j.fi])
+            {
+                dist[j.fi] = a + j.se;
+                pq.push(make_pair(dist[j.fi], j.fi));
+                parent[j.fi] = b;
+            }
+        }
+    }
+    // int count = 0;
+    // for (int i = 1; i <= n; i++)
+    // {
+    //     if (parent[i] == -1) count++;
+    // }
+    // if (count > 1) //more than one connected component
+    // {
+    //     return -1;
+    // }
+    ll j = n;
+    dist.clear();
+    dist.pb(n);
+    while (parent[j] >= 0)
+    {
+        dist.pb(parent[j]);
+        j = parent[j];
+    }
+    reverse(all(dist));
+    if (dist[0] != 1)
+    {
+        cout << "-1" << endl;
+    }
+    else
+    {
+        //shortest path from 1 to n
+        for (ll i = 0; i < dist.size(); i++) cout << dist[i] << " ";
+        cout << endl;
+    }
+}
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>dijkstra</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

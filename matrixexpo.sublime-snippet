@@ -1,0 +1,38 @@
+<snippet>
+	<content><![CDATA[
+vector<vi> multiply(vector<vi> a , vector<vi> b)
+{
+    vector<vi> c = {{0, 0}, {0, 0}} ;
+    for (int i = 0 ; i < 2 ; ++i)
+    {
+        for (int j = 0 ; j < 2 ; ++j)
+        {
+            for (int k = 0 ; k < 2 ; ++k)
+            {
+                c[i][k] += (a[i][j] * b[j][k]) % MOD ;
+                c[i][k] = c[i][k] % MOD ;
+            }
+        }
+    }
+    return c ;
+}
+vector<vi> expo(vector<vi> a, ll n)
+{
+    vector<vi> c = {{1, 0}, {0, 1}} ;
+    while (n)
+    {
+        if (n % 2 != 0)
+        {
+            c = multiply(c, a) ;
+        }
+        a = multiply(a, a) ;
+        n = n / 2 ;
+    }
+    return c ;
+}
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>matrixexpo</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

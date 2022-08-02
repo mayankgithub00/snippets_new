@@ -1,0 +1,52 @@
+<snippet>
+	<content><![CDATA[
+vl prime(1000000 + 1, 1), lp(1000000 + 1, -1), hp(1000000 + 1);
+void sieve()
+{
+    ll n = 1000000;
+    prime[0] = 0, prime[1] = 0;
+    for (ll i = 2; i <= n; i++)
+    {
+        if (prime[i] == 1)//iterate on all ,now which is prime
+        {
+            lp[i] = i, hp[i] = i;//mark their lowest and highest prime
+            for (ll j = 2 * i; j <= n; j += i)
+            {
+                //iterate over all multiples of i
+                prime[j] = 0; //mark them as not prime
+                if (lp[j] == -1) lp[j] = i;//if lowest prime not encountered yet mark that
+                hp[j] = i;//update highest prime after each prime marking
+            }
+        }
+    }
+    // T.C=> n/2+n/3+n/7+n/11+......  inner loop running only for primes
+    // marking the multiples of primes
+    // approximate to n(log(log(n)))
+}
+int main()
+{
+    sieve();
+    ll n; cin >> n;
+    vl v;
+    //prime factorisation in o(logn)
+    while (n > 1)
+    {
+        ll x = hp[n];
+        while (n % x == 0)
+        {
+            n = n / x;
+            v.pb(x);
+        }
+    }
+    for (ll i = 0; i < v.size(); i++)
+    {
+        cout << v[i] << " ";
+    }
+    return 0;
+}
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>sievegood</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

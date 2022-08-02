@@ -1,0 +1,24 @@
+<snippet>
+	<content><![CDATA[
+long long maxSubarraySum(int arr[], int n)
+    {
+        
+        // Your code here
+        long long sum=0,ans=-9e18;
+        for(int i=0;i<n;i++)
+        {
+            sum+=arr[i];
+            ans=max(ans,sum);
+            if(sum<0)
+            {
+                sum=0;
+            }
+        }
+        return ans;
+    }
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>maxsumsubarray</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

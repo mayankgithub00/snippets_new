@@ -1,0 +1,28 @@
+<snippet>
+	<content><![CDATA[
+ll n, i, j, k, count = 0;
+        cin >> n;
+        ll a[n];
+        for (i = 0; i < n; i++)
+        {
+            cin >> a[i];
+        }
+        vector<map<ll, ll>> pre(1000007);
+        map<ll, ll> m;
+        m[a[0]]++;
+        pre[0] = m;
+        for (i = 1; i < n; i++)
+        {
+            pre[i] = pre[i - 1];
+            pre[i][a[i]]++;
+        }
+        for (i = 0; i < n; i++)
+        {
+            cout << pre[i][a[i]] << endl;
+        }
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>vectorofmaps</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

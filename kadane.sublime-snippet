@@ -1,0 +1,22 @@
+<snippet>
+	<content><![CDATA[
+int maxSubArray(int* nums, int numsSize)
+{
+    // Dynamic Programming
+    int pre_max = nums[0];
+    int current_max = nums[0];
+    for (int i = 1; i < numsSize; i++)
+    {
+        // Compare the sum of previous max + the current number with the current number itself
+        pre_max = fmax(pre_max + nums[i], nums[i]);
+        // Compare the previous max with the current max records
+        current_max = fmax(pre_max, current_max);
+    }
+    return current_max;
+}
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>kadane</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

@@ -1,0 +1,11 @@
+<snippet>
+	<content><![CDATA[
+// for((k*(k+1))/2<=n)
+        k = (ll)(sqrt((ll)1 + (ll)8 * (ll)n) - (ll)1)/2;
+        //either k,k+1,k+2
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>quadraticformula</tabTrigger> 
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

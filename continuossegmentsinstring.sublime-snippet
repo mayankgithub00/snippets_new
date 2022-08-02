@@ -1,0 +1,25 @@
+<snippet>
+	<content><![CDATA[
+ll fun(string s, char j)
+{
+	//function will return number of continuous segments of j in s
+	ll i = 0, ans = 0;
+	while (i < s.length())
+	{
+		ll count = 0;
+		while (s[i] == j)
+		{
+			i++;
+			count++;
+		}
+		if (count != 0) ans++;
+		i++;
+	}
+	return ans;
+}
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>continuossegmentsinstring</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

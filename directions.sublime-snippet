@@ -1,0 +1,10 @@
+<snippet>
+	<content><![CDATA[
+int dx[] = {0, 0, -1, 1, 1, 1, -1, -1}, dy[] = {1, -1, 0, 0, 1, -1, 1, -1};
+bool isV(int x, int y) { return x >= 0 && x < N && y >= 0 && y < M; }
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>directions</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>
